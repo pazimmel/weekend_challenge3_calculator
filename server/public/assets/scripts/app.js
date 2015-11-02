@@ -1,13 +1,17 @@
 /**
  * Created by PaulZimmel on 10/30/15.
  */
-var operation, values, calculationObject, result, buttonNumber;
+
+//declare variables
+var operation, values, calculationObject, result, buttonArray;
 var calculationOrder = [];
+buttonArray = [9,8,7,6,5,4,3,2,1,0,".","ce"];
 
 $(document).ready(function(){
     init();
     enable();
 });
+///init, enable, disable, clear functions///
 
 //initialize calculator
 function init(){
@@ -20,6 +24,7 @@ function enable() {
     $(".numbers").children().on('click', numberPress);
     $(".operators").children().on('click', operatorPress);
 }
+
 //stop calculator
 function disable() {
     $(".numbers").children().off('click', numberPress);
@@ -39,25 +44,32 @@ function clearVariables() {
     calculationOrder = [];
     operation = "";
     result = 0;
+    $("#calculatorScreen").val("");
 }
 
 
 /// Calculator Button Operations///
-//function when a number is pressed
-function numberPress() {
 
-    $("#calculatorScreen").val($("#calculatorScreen").val()+this.id);
+//function when a number or CE is pressed
+function numberPress() {
+    if(this.id != "ce") {
+        $("#calculatorScreen").val($("#calculatorScreen").val() + this.id);
+    } else if (this.id =="ce") {
+        clearVariables();
+    }
 
 }
+
 //function once one of the four operators(-,+,*,/) are pressed
 function operatorPress() {
 
     determineNumber();
     determineOperation(this);
-    clearPress(this.id);
+    //clearPress(this.id);
     //console.log(calculationOrder);
 
 }
+
 //function for equals button
 function equalsButton(eventID){
     if(eventID == "equals"){
@@ -70,17 +82,9 @@ function equalsButton(eventID){
 
     }
 }
-//function when ce button is pressed
-function clearPress(eventID){
-    if(eventID=="ce"){
-        clearVariables();
-    }
-    return eventID;
-}
 
 
-
-
+//////Calculator Operation Functions/////
 //take number from form field
 function determineNumber(){
 
@@ -89,7 +93,7 @@ function determineNumber(){
     });
 
     if (values.calculatorScreen == ""){
-        $("#computationResult").val(666);
+        $("#computationResult").val("error");
         calculationOrder.length = 0;
         clearVariables();
 
@@ -108,7 +112,6 @@ function determineOperation(event){
     $("#calculatorScreen").val('');
     equalsButton(operation);
 
-
     return operation;
 }
 
@@ -122,23 +125,26 @@ function sendCalculatorInfo() {
         url: "/data",
         data: calculationObject,
         success: function(data){
+            clearVariables();
             result = data.result;
             console.log("here is the data back, ", result);
             appendResult();
-            clearVariables();
 
         }
     });
 }
 
-//append functions
+/////Append Dom functions////
+
+//append buttons
 function appendButtons() {
 
-    var numberArray = [9,8,7,6,5,4,3,2,1,0,".", "ce"];
-    for ( i = 0; i<numberArray.length;i++){
-        $(".numbers").append("<div id ='"+numberArray[i]+"' class = 'btn btn-default'>"+numberArray[i]+"</div>")
+    buttonArray = [9,8,7,6,5,4,3,2,1,0,".", "ce"];
+    for ( i = 0; i<buttonArray.length;i++){
+        $(".numbers").append("<div id ='"+buttonArray[i]+"' class = 'btn btn-default'>"+buttonArray[i]+"</div>")
     }
 }
+//append result
 function appendResult(){
     $("#calculatorScreen").val(result);
 }
