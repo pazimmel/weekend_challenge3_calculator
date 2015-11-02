@@ -138,7 +138,8 @@ function appendButtons() {
 
     buttonArray = [9,8,7,6,5,4,3,2,1,0,".", "ce"];
     for ( i = 0; i<buttonArray.length;i++){
-        $(".numbers").append("<div id ='"+buttonArray[i]+"' class = 'btn btn-default'>"+buttonArray[i]+"</div>")
+        $(".numbers").append("<div id ='"+buttonArray[i]+"'" +
+            " class = 'number_button btn btn-default'>"+buttonArray[i]+"</div>")
     }
 }
 //append result

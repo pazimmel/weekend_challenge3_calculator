@@ -1,9 +1,18 @@
+#calculator {
+    text-align: center;
+}
 .numbers {
     display: inline-block;
-    margin: 0 0 0 10px;
+    margin: 0 0 0 35px;
     padding: 1px;
 }
 .operators {
     margin: 0;
     padding:2px 0;
+}
+.number_button {
+    min-width:42px;
+}
+.operator_button {
+    min-width: 35px;
 }
