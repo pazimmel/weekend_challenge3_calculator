@@ -10,22 +10,26 @@
     <script type="text/javascript" src="/assets/scripts/app.js"></script>
 </head>
 <body>
-    <div class = container>
+    <div id = 'calculator' class = 'container col-md-3'>
         <h1>Calculator</h1>
 
-        <form id = calculatorDisplay>
-            <label for = "firstNumber">Number</label>
-            <input type = "number" id = "firstNumber" name = "firstNumber" placeholder = "Enter a number">
-            <label for = "secondNumber">Number</label>
-            <input type = "number" id ="secondNumber" name = "secondNumber" placeholder = "Enter a number">
+        <form id = 'calculatorDisplay'>
+            <label for = "calculatorScreen"></label>
+            <input type = "number" id = "calculatorScreen" name = "calculatorScreen" placeholder = "Enter a number" autofocus>
+            <!--<label for = "computationResult">Result</label>-->
+            <!--<input type = "number" id ="computationResult" name = "computationResult" placeholder = "Your result is">-->
         </form>
-        <div class = operators>
-            <div id = "add" class = "btn btn-default">+</div>
-            <div id = "subtract" class = "btn btn-default">-</div>
-            <div id ="multiply" class = "btn btn-default">*</div>
-            <div id = "divide" class = "btn btn-default">/</div>
-            <div id = "equals" class = "btn btn-default">=</div>
+        <div class = 'buttonDisplay'>
+            <div class = 'numbers col-md-6 col-md-offset-2'></div>
+            <div class = 'operators col-md-2'>
+                <div id = "add" class = "btn btn-default">+</div>
+                <div id = "subtract" class = "btn btn-default">-</div>
+                <div id ="multiply" class = "btn btn-default">*</div>
+                <div id = "divide" class = "btn btn-default">/</div>
+                <div id = "equals" class = "btn btn-default">=</div>
+            </div>
         </div>
+
 
     </div>
 </body>
