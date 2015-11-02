@@ -5,7 +5,7 @@
 //declare variables
 var operation, values, calculationObject, result, buttonArray;
 var calculationOrder = [];
-buttonArray = [9,8,7,6,5,4,3,2,1,0,".","ce"];
+buttonArray = [9,8,7,6,5,4,3,2,1,0,".","CE"];
 
 $(document).ready(function(){
     init();
@@ -136,7 +136,7 @@ function sendCalculatorInfo() {
 //append buttons
 function appendButtons() {
 
-    buttonArray = [9,8,7,6,5,4,3,2,1,0,".", "ce"];
+    //buttonArray = [9,8,7,6,5,4,3,2,1,0,".", "CE"];
     for ( i = 0; i<buttonArray.length;i++){
         $(".numbers").append("<div id ='"+buttonArray[i]+"'" +
             " class = 'number_button btn btn-default'>"+buttonArray[i]+"</div>")

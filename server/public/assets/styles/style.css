@@ -4,14 +4,14 @@
 .numbers {
     display: inline-block;
     margin: 0 0 0 35px;
-    padding: 1px;
+    padding: 5px 1px 1px 1px;
 }
 .operators {
     margin: 0;
-    padding:2px 0;
+    padding:5px 0 0 0;
 }
 .number_button {
-    min-width:42px;
+    min-width:45px;
 }
 .operator_button {
     min-width: 35px;
