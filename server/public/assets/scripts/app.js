@@ -53,6 +53,7 @@ function clearVariables() {
 
 //function when a number or CE is pressed
 function numberPress() {
+
     if(this.id != "CE") {
         $("#calculatorScreen").val($("#calculatorScreen").val() + this.id);
     } else if (this.id =="CE") {
@@ -100,7 +101,7 @@ function determineNumber(){
     return values;
 }
 
-//determine type of mathematical operation, includes ajax call if equals button pushed
+//determine type of mathematical operation, includes equals button
 function determineOperation(event){
     operation = event.id;
 
