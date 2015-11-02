@@ -11,7 +11,8 @@ $(document).ready(function(){
     init();
     enable();
 });
-///init, enable, disable, clear functions///
+
+/// init, enable, disable clear functions///
 
 //initialize calculator
 function init(){
@@ -65,26 +66,22 @@ function operatorPress() {
 
     determineNumber();
     determineOperation(this);
-    //clearPress(this.id);
-    //console.log(calculationOrder);
-
 }
 
 //function for equals button
 function equalsButton(eventID){
     if(eventID == "equals"){
 
-        //console.log("equals!!");
         calculationOrder.pop();
-        //console.log("equals! Here is the calculation array, ",calculationOrder);
         calculationObject.calculation = calculationOrder;
-        sendCalculatorInfo();
 
+        sendCalculatorInfo();
     }
 }
 
 
 //////Calculator Operation Functions/////
+
 //take number from form field
 function determineNumber(){
 
@@ -93,22 +90,22 @@ function determineNumber(){
     });
 
     if (values.calculatorScreen == ""){
-        $("#computationResult").val("error");
+        $("#computationScreen").val("error");
         calculationOrder.length = 0;
         clearVariables();
-
     }
+
     calculationOrder.push(values.calculatorScreen);
-    //console.log("in determineNumber, ",calculationOrder);
+
     return values;
 }
 
 //determine type of mathematical operation, includes ajax call if equals button pushed
 function determineOperation(event){
     operation = event.id;
-    //console.log("in determinOperation, ", operation);
+
     calculationOrder.push(operation);
-    //console.log("in determineOperation, ",calculationOrder);
+
     $("#calculatorScreen").val('');
     equalsButton(operation);
 
