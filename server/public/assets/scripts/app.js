@@ -53,9 +53,9 @@ function clearVariables() {
 
 //function when a number or CE is pressed
 function numberPress() {
-    if(this.id != "ce") {
+    if(this.id != "CE") {
         $("#calculatorScreen").val($("#calculatorScreen").val() + this.id);
-    } else if (this.id =="ce") {
+    } else if (this.id =="CE") {
         clearVariables();
     }
 
